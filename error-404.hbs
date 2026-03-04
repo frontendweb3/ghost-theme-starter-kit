@@ -1,0 +1,21 @@
+{{!< default}}
+
+<section class="max-w-7xl mx-auto px-4 md:px-8 py-32 flex flex-col items-center justify-center text-center">
+    <h1 class="text-9xl font-extrabold text-indigo-100 dark:text-indigo-900/30 mb-4">404</h1>
+    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">Page not found</h2>
+    <p class="text-xl text-gray-500 dark:text-gray-400 mb-12 max-w-md">Sorry, we couldn't find the page you're looking for. It might have been moved or deleted.</p>
+    <a href="{{@site.url}}" class="bg-indigo-600 text-white px-8 py-3 rounded-full font-bold hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+        Back to Home
+    </a>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 md:px-8 py-16 border-t border-gray-100 dark:border-gray-800">
+    <h3 class="text-2xl font-bold mb-12 dark:text-white">Recently published</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {{#get "posts" limit="3" include="tags,authors"}}
+            {{#foreach posts}}
+                {{> "card"}}
+            {{/foreach}}
+        {{/get}}
+    </div>
+</section>
