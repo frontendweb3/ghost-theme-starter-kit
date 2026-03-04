@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Add file to watch for changes in tailwind css */
+@source '../**/*.hbs';
+@source '../../**/*.hbs';
+@source '../assets/**/*.{js,css,png,jpg,jpeg,gif,svg,webp,avif}';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #15171a;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  
+  /* Required Ghost Font Variables */
+  --gh-font-heading: var(--font-serif);
+  --gh-font-body: var(--font-sans);
+}
+
+@layer base {
+  .kg-width-wide {
+    @apply relative w-screen left-1/2 right-1/2 -translate-x-1/2 max-w-5xl;
+  }
+  .kg-width-full {
+    @apply relative w-screen left-1/2 right-1/2 -translate-x-[52%] overflow-x-hidden;
+  }
+}
