@@ -27,7 +27,7 @@ A minimal Ghost CMS theme starter that pairs Ghost templates with modern tooling
 1. Clone the repo:
 
    ```bash
-   git clone <your-fork-or-clone-url>
+   git clone https://github.com/frontendweb3/ghost-theme-starter-kit.git
    cd ghost-theme-starter
    ```
 
