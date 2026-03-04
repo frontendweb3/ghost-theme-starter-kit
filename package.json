@@ -1,0 +1,40 @@
+{
+  "name": "ghost-theme-starter-kit",
+  "description": "A minimal Ghost CMS theme starter.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Rajdeep Singh",
+    "email": "officialrajdeepsingh@gmail.com"
+  },
+  "keywords": [
+    "ghost-theme"
+  ],
+  "type": "module",
+  "scripts": {
+    "start ": "vite",
+    "dev": "vite build --watch --mode development",
+    "build": "vite build",
+    "test": "pnpm dlx gscan@latest . --v6"
+  },
+  "config": {
+    "posts_per_page": 10,
+    "card_assets": true
+  },
+  "engines": {
+    "ghost": ">=6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "sharp": "^0.34.5",
+    "svgo": "^4.0.0",
+    "vite": "^7.3.1",
+    "vite-plugin-image-optimizer": "^1.1.9",
+    "vite-plugin-zip-pack": "^1.2.4"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.2.1",
+    "tailwindcss": "^4.2.1"
+  }
+}
