@@ -1,0 +1,27 @@
+{{!< default}}
+
+<section class="max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-24">
+    <header class="mb-16 border-b border-gray-100 pb-12">
+        {{#tag}}
+            <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl mb-4">{{name}}</h1>
+            <p class="text-xl text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
+                {{#if description}}
+                    {{description}}
+                {{else}}
+                    A collection of {{plural ../pagination.total empty='zero posts' uint='one post' other='% posts'}}
+                {{/if}}
+            </p>
+           
+        {{/tag}}
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {{#foreach posts}}
+            {{> "card"}}
+        {{/foreach}}
+    </div>
+
+    <div class="mt-16 flex justify-center">
+        {{pagination}}
+    </div>
+</section>
