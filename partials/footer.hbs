@@ -1,0 +1,18 @@
+<footer class="py-12 mt-20 border-t border-gray-100 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-sm text-gray-500 dark:text-gray-400">
+                &copy; {{date format="YYYY"}} {{@site.title}}. All rights reserved.
+            </div>
+            <div class="flex items-center gap-6">
+                {{navigation type="secondary"}}
+                {{#if @site.facebook}}
+                    <a href="{{social_url type="facebook"}}" class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Facebook</a>
+                {{/if}}
+                {{#if @site.twitter}}
+                    <a href="{{social_url type="twitter"}}" class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Twitter</a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</footer>

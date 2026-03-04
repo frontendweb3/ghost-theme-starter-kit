@@ -1,0 +1,49 @@
+<article class="flex flex-col gap-4 mb-12 group cursor-pointer" onclick="location.href='{{url}}'">
+    {{#if feature_image}}
+    <div class="aspect-video overflow-hidden rounded-2xl">
+        <img 
+            class="object-cover w-full h-full transform transition duration-500 group-hover:scale-105"
+            srcset="{{img_url feature_image size="s"}} 300w,
+                    {{img_url feature_image size="m"}} 600w,
+                    {{img_url feature_image size="l"}} 1000w,
+                    {{img_url feature_image size="xl"}} 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="{{img_url feature_image size="m"}}"
+            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+            loading="lazy"
+        />
+    </div>
+    {{/if}}
+
+    <div class="flex flex-col gap-3">
+        <div class="flex items-center gap-3 text-sm font-medium">
+            {{#primary_tag}}
+                <span class="text-indigo-600 dark:text-indigo-400 px-2.5 py-0.5 bg-indigo-50 dark:bg-indigo-900/30 rounded-full">{{name}}</span>
+            {{/primary_tag}}
+            <span class="text-gray-400 dark:text-gray-500 font-normal">
+                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+                <span class="mx-1.5">&bull;</span>
+                {{reading_time}}
+            </span>
+        </div>
+
+        <h2 class="text-2xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+            <a href="{{url}}" class="block">{{title}}</a>
+        </h2>
+
+        <p class="text-gray-600 dark:text-gray-400 line-clamp-2 leading-relaxed">
+            {{excerpt words="30"}}
+        </p>
+
+        <div class="flex items-center gap-3 mt-1">
+             {{#foreach authors}}
+                <div class="flex items-center gap-2">
+                    {{#if profile_image}}
+                        <img src="{{img_url profile_image size="xs"}}" alt="{{name}}" class="w-6 h-6 rounded-full object-cover border border-gray-100 dark:border-gray-800" />
+                    {{/if}}
+                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{{name}}</span>
+                </div>
+            {{/foreach}}
+        </div>
+    </div>
+</article>

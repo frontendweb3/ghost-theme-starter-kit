@@ -1,0 +1,17 @@
+{{#if isSecondary}}
+    <ul class="flex items-center gap-6 list-none p-0 m-0">
+        {{#foreach navigation}}
+            <li>
+                <a href="{{url absolute="true"}}" class="text-sm text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">{{label}}</a>
+            </li>
+        {{/foreach}}
+    </ul>
+{{else}}
+    <ul class="flex items-center gap-8 list-none p-0 m-0">
+        {{#foreach navigation}}
+            <li>
+                <a href="{{url absolute="true"}}" class="text-sm font-semibold {{#if current}}text-indigo-600 dark:text-indigo-400{{else}}text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400{{/if}} transition-colors">{{label}}</a>
+            </li>
+        {{/foreach}}
+    </ul>
+{{/if}}
