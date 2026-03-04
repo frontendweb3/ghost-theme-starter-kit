@@ -1,0 +1,32 @@
+{{!< default}}
+
+{{#post}}
+<article class="pt-16 pb-24 px-4 md:px-8 max-w-7xl mx-auto w-full">
+    {{#if @page.show_title_and_feature_image}}
+        <header class="max-w-3xl mx-auto text-center mb-12">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight mb-8">
+                {{title}}
+            </h1>
+        </header>
+
+        {{#if feature_image}}
+        <div class="max-w-5xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-2xl">
+            <img 
+                class="w-full h-auto object-cover max-h-[600px]"
+                srcset="{{img_url feature_image size="s"}} 300w,
+                        {{img_url feature_image size="m"}} 600w,
+                        {{img_url feature_image size="l"}} 1000w,
+                        {{img_url feature_image size="xl"}} 2000w"
+                sizes="(max-width: 1000px) 100vw, 1000px"
+                src="{{img_url feature_image size="l"}}"
+                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+            />
+        </div>
+        {{/if}}
+    {{/if}}
+
+    <div class="prose prose-lg md:prose-xl prose-slate dark:prose-invert mx-auto max-w-3xl prose-headings:font-bold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 hover:prose-a:text-indigo-500">
+        {{content}}
+    </div>
+</article>
+{{/post}}
