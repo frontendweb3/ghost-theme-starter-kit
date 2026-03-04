@@ -1,11 +1,10 @@
 # Ghost Theme Starter Kit
 
-<p align="center">
-   <img src="https://static.ghost.org/v4.0.0/images/ghost-logo.svg" alt="Ghost CMS" height="64" />
+<div align="center">
+   <img src="https://mintcdn.com/ghost/5_xpDDjqLTzEezAK/images/3715a5ca-ghost-logo-light.png?w=1100&fit=max&auto=format&n=5_xpDDjqLTzEezAK&q=85&s=02cd3d095e93413aef1f203afb1faaea" alt="Ghost CMS" height="64" />
    <img src="https://vitejs.dev/logo.svg" alt="Vite" height="64" style="margin: 0 16px;" />
-   <img src="https://tailwindcss.com/_next/static/media/tailwindcss-logotype.128b6e12.svg" alt="Tailwind CSS" height="64" />
-  
-</p>
+   <img src="https://tailwindcss.com/_next/static/media/tailwindcss-logotype-white.541819ec.svg" alt="Tailwind CSS" height="64" />
+</div>
 
 A minimal Ghost CMS theme starter that pairs Ghost templates with modern tooling (Vite + Tailwind CSS 4) so you can prototype, build, and ship themes quickly. Clone it, customize it, and use it for commercial or client projects.
 
