@@ -1,0 +1,72 @@
+{{!< default}}
+
+{{#post}}
+<article class="pt-16 pb-24 px-4 md:px-8 max-w-7xl mx-auto w-full">
+    <header class="max-w-3xl mx-auto text-center mb-12">
+        {{#if primary_tag}}
+            {{#primary_tag}}
+                <a href="{{url}}" class="inline-block text-indigo-600 dark:text-indigo-400 px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg text-sm font-semibold tracking-wide uppercase mb-6 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors">
+                   # {{name}}
+                </a>
+            {{/primary_tag}}
+        {{/if}}
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight mb-8">
+            {{title}}
+        </h1>
+
+        <div class="flex items-center justify-center gap-4 text-gray-500 dark:text-gray-400 font-medium">
+            <div class="flex items-center gap-3 text-left">
+                {{#foreach authors}}
+                    {{#if profile_image}}
+                        <img src="{{img_url profile_image size="xs"}}" alt="{{name}}" class="w-10 h-10 rounded-full border border-gray-100 dark:border-gray-800 object-cover" />
+                    {{/if}}
+                    <div>
+                        <a href="{{url}}" class="text-gray-900 dark:text-white font-semibold">{{name}}</a>
+                        <div class="text-xs">
+                             <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+                             <span class="mx-1.5">&bull;</span>
+                             {{reading_time}}
+                        </div>
+                    </div>
+                {{/foreach}}
+            </div>
+        </div>
+    </header>
+
+    {{#if feature_image}}
+    <div class="max-w-5xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-2xl">
+        <img 
+            class="w-full h-auto object-cover max-h-150"
+            srcset="{{img_url feature_image size="s"}} 300w,
+                    {{img_url feature_image size="m"}} 600w,
+                    {{img_url feature_image size="l"}} 1000w,
+                    {{img_url feature_image size="xl"}} 2000w"
+            sizes="(max-width: 1000px) 100vw, 1000px"
+            src="{{img_url feature_image size="l"}}"
+            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+        />
+    </div>
+    {{/if}}
+
+    <div class="prose prose-lg md:prose-xl prose-slate dark:prose-invert mx-auto max-w-3xl prose-headings:font-bold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 hover:prose-a:text-indigo-500">
+        {{content}}
+    </div>
+
+    <footer class="max-w-3xl mx-auto mt-20 pt-10 border-t border-gray-100 dark:border-gray-800">
+        {{#if comments}}
+            <section class="mb-20">
+                {{comments}}
+            </section>
+        {{/if}}
+
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-6 py-10">
+            <h3 class="text-xl font-bold dark:text-white">Share this post</h3>
+            <div class="flex items-center gap-4">
+                 <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}" class="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" target="_blank">Twitter</a>
+                 <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" class="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" target="_blank">Facebook</a>
+            </div>
+        </div>
+    </footer>
+</article>
+{{/post}}
