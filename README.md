@@ -6,16 +6,15 @@
    <img src="https://tailwindcss.com/_next/static/media/tailwindcss-logotype-white.541819ec.svg" alt="Tailwind CSS" height="64" />
 </div>
 
-A minimal Ghost CMS theme starter that pairs Ghost templates with modern tooling (Vite + Tailwind CSS 4) so you can prototype, build, and ship themes quickly. Clone it, customize it, and use it for commercial or client projects.
+A minimal Ghost CMS theme starter that combines Ghost templates with modern tools (Vite + Tailwind CSS 4) to help you build and deploy themes quickly. Clone it, customize it, and use it for commercial or client projects.
 
 ## Features
 
-- Vite-powered dev/build pipeline for fast reloads and optimized bundles
-- Tailwind CSS 4 with Typography plugin for rapid styling
-- Ghost theme scaffolding with Handlebars templates and partials
-- Ready-to-ship structure: assets pipeline, public folder, and basic pagination/navigation components
-- Automatic image optimization with sharp for performant delivery
-- Theme packaging: export as a zip file for easy distribution and deployment
+- Vite-powered development and build pipeline for quick reloads and optimized bundles
+- Tailwind CSS 4 with the Typography plugin for efficient styling
+- Ready-to-ship structure with assets  and basic pagination/navigation components
+- Automatic image optimization using Sharp for enhanced performance
+- Theme packaging that allows export as a zip file for easy distribution and deployment
 
 ## Prerequisites
 
