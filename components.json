@@ -1,17 +1,23 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "new-york",
+  "style": "radix-nova",
   "rsc": false,
   "tsx": false,
   "tailwind": {
     "config": "vite.config.ts",
     "css": "assets/css/styles.css",
-    "baseColor": "zinc",
-    "cssVars": true,
+    "baseColor": "neutral",
+    "cssVariables": true,
     "prefix": ""
   },
+  "rtl": true,
   "aliases": {
     "components": "assets/js/components",
-    "utils": "assets/js/lib/utils"
-  }
+    "utils": "assets/js/lib/utils",
+    "ui": "assets/js/components/ui",
+    "lib": "assets/js/lib"
+  },
+  "menuColor": "default",
+  "menuAccent": "subtle",
+  "registries": {}
 }
