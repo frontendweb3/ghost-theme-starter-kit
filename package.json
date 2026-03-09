@@ -28,6 +28,7 @@
     "@types/node": "^25.3.3",
     "sharp": "^0.34.5",
     "svgo": "^4.0.0",
+    "tailwindcss-animate": "^1.0.7",
     "vite": "^7.3.1",
     "vite-plugin-image-optimizer": "^1.1.9",
     "vite-plugin-zip-pack": "^1.2.4"

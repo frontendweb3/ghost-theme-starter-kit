@@ -11,23 +11,24 @@
             {{/primary_tag}}
         {{/if}}
 
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight mb-8">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-8">
             {{title}}
         </h1>
 
-        <div class="flex items-center justify-center gap-4 text-gray-500 dark:text-gray-400 font-medium">
+        <div class="flex items-center mx-auto justify-center gap-4  font-medium">
             <div class="flex items-center gap-3 text-left">
                 {{#foreach authors}}
+                <div class="group flex flex-row items-center gap-3">
                     {{#if profile_image}}
-                        <img src="{{img_url profile_image size="xs"}}" alt="{{name}}" class="w-10 h-10 rounded-full border border-gray-100 dark:border-gray-800 object-cover" />
-                    {{/if}}
-                    <div>
-                        <a href="{{url}}" class="text-gray-900 dark:text-white font-semibold">{{name}}</a>
-                        <div class="text-xs">
-                             <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
-                             <span class="mx-1.5">&bull;</span>
-                             {{reading_time}}
+                        <img src="{{img_url profile_image size="xs"}}" alt="{{name}}" class="w-10 h-10 rounded-full border border-border object-cover" />
+                    {{else}}
+                        <div class="w-11 h-11 cursor-none rounded-full p-4 border border-border bg-secondary flex items-center justify-center text-xs font-medium text-secondary-foreground">
+                            {{name}}
                         </div>
+                    {{/if}}
+                    <div class="flex flex-col text-xs p-2 gap-1">
+                        <a href="{{url}}" class="font-semibold">{{name}}</a>
+                        <time datetime="{{date ../published_at format="YYYY-MM-DD"}}"> {{date ../published_at format="DD MMMM YYYY"}}</time>
                     </div>
                 {{/foreach}}
             </div>
@@ -53,7 +54,7 @@
         {{content}}
     </div>
 
-    <footer class="max-w-3xl mx-auto mt-20 pt-10 border-t border-gray-100 dark:border-gray-800">
+    <footer class="max-w-3xl mx-auto mt-20 pt-10 border-t border-border">
         {{#if comments}}
             <section class="mb-20">
                 {{comments}}
@@ -61,10 +62,10 @@
         {{/if}}
 
         <div class="flex flex-col sm:flex-row justify-between items-center gap-6 py-10">
-            <h3 class="text-xl font-bold dark:text-white">Share this post</h3>
+            <h3 class="text-xl font-bold">Share this post</h3>
             <div class="flex items-center gap-4">
-                 <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}" class="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" target="_blank">Twitter</a>
-                 <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" class="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" target="_blank">Facebook</a>
+                 <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" target="_blank">Twitter</a>
+                 <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" target="_blank">Facebook</a>
             </div>
         </div>
     </footer>
