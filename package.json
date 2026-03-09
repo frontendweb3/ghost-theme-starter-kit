@@ -28,12 +28,14 @@
     "@types/node": "^25.3.3",
     "sharp": "^0.34.5",
     "svgo": "^4.0.0",
-    "tailwindcss-animate": "^1.0.7",
     "vite": "^7.3.1",
     "vite-plugin-image-optimizer": "^1.1.9",
     "vite-plugin-zip-pack": "^1.2.4"
   },
   "dependencies": {
+    "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "@fontsource-variable/playfair-display": "^5.2.8",
+    "@fontsource-variable/source-serif-4": "^5.2.9",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.1",
     "shadcn": "^4.0.2",

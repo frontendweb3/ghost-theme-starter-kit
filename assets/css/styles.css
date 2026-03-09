@@ -1,6 +1,11 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
-@plugin "tailwindcss-animate";
+@import "@fontsource-variable/playfair-display";
+@import "@fontsource-variable/source-serif-4";
+@import "@fontsource-variable/jetbrains-mono";
+@import "@tailwindcss/typography";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
 
 /* Add file to watch for changes in tailwind css */
 @source '../**/*.hbs';
@@ -16,7 +21,7 @@
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
+    --primary: oklch(85.72% 0.01222 16.958);
     --primary-foreground: oklch(0.985 0 0);
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
@@ -124,6 +129,12 @@
     /* Required Ghost Font Variables */
     --gh-font-heading: var(--font-serif);
     --gh-font-body: var(--font-sans);
+    --font-heading: var(--font-playfair-display);
+    --font-body: var(--font-source-serif-4);
+    --font-mono: var(--font-jetbrains-mono);
+    --font-playfair-display: Playfair Display;
+    --font-source-serif-4: Source Serif 4;
+    --font-jetbrains-mono: JetBrains Mono;
 }
 
 @layer base {
@@ -134,11 +145,9 @@
     @apply bg-background text-foreground;
     }
   html {
-    @apply font-sans;
+    @apply font-jetbrains-mono;
     }
 }
-
-
 
 @layer base {
   .kg-width-wide {
@@ -150,4 +159,42 @@
   .prose :where(figcaption) {
     @apply text-sm text-center text-muted mt-2;
   }
+}
+
+h1 {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+}
+
+h2 {
+    font-family: var(--font-heading);
+    font-size: 1.875rem;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+}
+
+h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+}
+
+h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.01em;
+}
+
+body, p {
+    font-family: var(--font-body);
+    line-height: 1.65;
+}
+
+code, pre {
+    font-family: var(--font-mono);
 }

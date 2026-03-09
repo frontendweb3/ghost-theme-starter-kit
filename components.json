@@ -10,14 +10,17 @@
     "cssVariables": true,
     "prefix": ""
   },
+  "iconLibrary": "lucide",
   "rtl": true,
+  "menuColor": "default",
+  "menuAccent": "subtle",
   "aliases": {
     "components": "assets/js/components",
     "utils": "assets/js/lib/utils",
     "ui": "assets/js/components/ui",
     "lib": "assets/js/lib"
   },
-  "menuColor": "default",
-  "menuAccent": "subtle",
-  "registries": {}
+  "registries": {
+    "@fonttrio": "https://www.fonttrio.xyz/r/{name}.json"
+  }
 }

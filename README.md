@@ -78,3 +78,5 @@ A minimal Ghost CMS theme starter that combines Ghost templates with modern tool
 ## Licensing
 
 This starter is released under the MIT License (see LICENSE.md). You are free to use it for personal, client, or commercial projects and to sell derived themes.
+
+- <https://www.fonttrio.xyz>
