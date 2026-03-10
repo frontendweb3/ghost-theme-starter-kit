@@ -4,6 +4,7 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 import zipPack from 'vite-plugin-zip-pack'
 import fs from 'node:fs'
 import path from 'node:path'
+import purgeCSSPlugin from '@fullhuman/postcss-purgecss'
 
 // Helper to get all .hbs files in the root and partials folder
 const getAllHbsFiles = (dir: string, fileList: string[] = []) => {
@@ -22,7 +23,13 @@ const getAllHbsFiles = (dir: string, fileList: string[] = []) => {
 };
 
 export default defineConfig(({ mode }) => {
+
   const isProduction = mode === 'production';
+
+  const purgeCssContent = [
+    ...getAllHbsFiles('.'),
+    'assets/js/**/*.js'
+  ];
   
   return {
     plugins: [
@@ -58,6 +65,20 @@ export default defineConfig(({ mode }) => {
           }
       })
     ],
+    css: {
+      postcss: {
+        plugins: isProduction
+          ? [
+              purgeCSSPlugin({
+                content: purgeCssContent,
+                defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+                fontFace: true,
+                variables: true,                
+                })
+            ]
+          : []
+      }
+    },
     build: {
       outDir: 'assets/dist',
       emptyOutDir: true,
