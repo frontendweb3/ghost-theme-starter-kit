@@ -5,19 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{meta_title}}</title>
     <link rel="stylesheet" href="{{asset "dist/css/main.css"}}">
-
-    <script>
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
+    
+    {{> "style-script"}} {{!-- partials/style-script.hbs --}}
 
     {{ghost_head}}
     
 </head>
-<body class="{{body_class}} bg-background text-foreground font-sans antialiased transition-colors duration-300">
+<body class="{{body_class}}">
 
     <div class="flex flex-col min-h-screen">
 

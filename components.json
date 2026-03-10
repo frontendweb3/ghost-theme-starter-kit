@@ -17,9 +17,8 @@
   "aliases": {
     "components": "assets/js/components",
     "utils": "assets/js/lib/utils",
-    "ui": "assets/js/components/ui",
-    "lib": "assets/js/lib"
-  },
+    "ui": "assets/js/components/ui"
+    },
   "registries": {
     "@fonttrio": "https://www.fonttrio.xyz/r/{name}.json"
   }
