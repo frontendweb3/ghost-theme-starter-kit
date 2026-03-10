@@ -1,13 +1,12 @@
-import Alpine from 'alpinejs' // Add alpine.js 
-import '../css/styles.css';     // Add tailwind CSS 4
+// Import styles
+import '../css/styles.css';
+
+// Import utilities
+import './alpine.js';  // Initialize Alpine.js
+import './icons.js';   // Initialize Lucide icons
 
 // Help Vite discover images for optimization
-import.meta.glob('../images/**/*.{png,jpg,jpeg,svg,webp,avif}', { eager: true }); 
-
-// Make Alpine available globally for use in the HTML or initialize the Alpine.js framework
-window.Alpine = Alpine
- 
-Alpine.start()
+import.meta.glob('../images/**/*.{png,jpg,jpeg,svg,webp,avif}', { eager: true });
 
 // Toggle dark mode based on user preference or system settings with local storage support and icon toggling using Tailwind CSS classes and JavaScript event listeners.
 
