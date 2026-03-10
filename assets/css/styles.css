@@ -1,11 +1,7 @@
 @import "tailwindcss";
-@import "@fontsource-variable/playfair-display";
-@import "@fontsource-variable/source-serif-4";
-@import "@fontsource-variable/jetbrains-mono";
-@import "@tailwindcss/typography";
+@plugin "@tailwindcss/typography";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-
 
 /* Add file to watch for changes in tailwind css */
 @source '../**/*.hbs';
@@ -125,76 +121,60 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 
     --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    --font-jetbrains-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace;
 
-    /* Required Ghost Font Variables */
+    --font-heading: var(--gh-font-heading), Arial, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-body: var(--gh-font-body), Helvetica, ui-sans, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    /* 
+
     --gh-font-heading: var(--font-serif);
     --gh-font-body: var(--font-sans);
+
     --font-heading: var(--font-playfair-display);
     --font-body: var(--font-source-serif-4);
+
     --font-mono: var(--font-jetbrains-mono);
     --font-playfair-display: Playfair Display;
     --font-source-serif-4: Source Serif 4;
-    --font-jetbrains-mono: JetBrains Mono;
+    --font-jetbrains-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace; 
+
+    */
+
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    }
+  }
   body {
-    @apply bg-background text-foreground;
-    }
-  html {
-    @apply font-jetbrains-mono;
-    }
-}
+    @apply  bg-background text-foreground font-sans antialiased transition-colors duration-300;
+  }
 
-@layer base {
-  .kg-width-wide {
+  /* Font */
+  body :where(p, pre){
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6  {
+    font-family: var(--font-heading);
+  }
+  
+  /* Add the support fonts in tailwindcss-typography */
+  .prose {
+      --tw-prose-body: var(--gh-font-body);
+      --tw-prose-headings: var(--gh-font-heading);
+  }
+
+  .prose :where(.kg-width-wide) {
     @apply relative w-screen left-1/2 right-1/2 -translate-x-1/2 max-w-5xl;
   }
-  .kg-width-full {
+
+  .prose :where(.kg-width-full) {
     @apply relative w-screen left-1/2 right-1/2 -translate-x-[52%] overflow-x-hidden;
   }
-  .prose :where(figcaption) {
-    @apply text-sm text-center text-muted mt-2;
+  
+  .prose :where(.kg-card, .kg-image-card, .kg-gallery-card, .kg-embed-card, .kg-bookmark-card) figcaption {
+     @apply text-sm text-center text-muted mt-2;
   }
-}
-
-h1 {
-    font-family: var(--font-heading);
-    font-size: 2.25rem;
-    line-height: 1.2;
-    letter-spacing: -0.025em;
-    font-weight: 700;
-}
-
-h2 {
-    font-family: var(--font-heading);
-    font-size: 1.875rem;
-    line-height: 1.25;
-    letter-spacing: -0.02em;
-    font-weight: 600;
-}
-
-h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    line-height: 1.3;
-    letter-spacing: -0.015em;
-    font-weight: 600;
-}
-
-h4, h5, h6 {
-    font-family: var(--font-heading);
-    letter-spacing: -0.01em;
-}
-
-body, p {
-    font-family: var(--font-body);
-    line-height: 1.65;
-}
-
-code, pre {
-    font-family: var(--font-mono);
 }
