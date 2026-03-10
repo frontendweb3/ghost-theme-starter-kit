@@ -9,9 +9,10 @@
 {{else}}
     <ul class="flex items-center gap-8 list-none p-0 m-0">
         {{#foreach navigation}}
-            <li>
-                <a href="{{url absolute="true"}}" class="text-sm font-semibold {{#if current}}text-indigo-600 dark:text-indigo-400{{else}}text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400{{/if}} transition-colors">{{label}}</a>
+            <li class="group">
+                  {{#link href=(url absolute="true") class="text-sm font-semibold hover:underline underline-offset-4 hover:text-indigo-600  dark:hover:text-indigo-400 transition-colors" activeClass="text-indigo-600 dark:text-indigo-400"}} {{label}} {{/link}} 
             </li>
         {{/foreach}}
     </ul>
 {{/if}}
+
