@@ -20,7 +20,7 @@
     <div class="flex flex-col gap-3">
         <div class="flex items-center gap-3 text-sm font-medium">
             {{#primary_tag}}
-                <span class="text-indigo-600 dark:text-indigo-400 px-2.5 py-0.5 bg-indigo-50 dark:bg-indigo-900/30 rounded-full">{{name}}</span>
+                <span class="text-indigo-600 dark:text-indigo-400 px-2.5 py-0.5 bg-indigo-50 dark:bg-indigo-900/30 rounded-none">{{name}}</span>
             {{/primary_tag}}
             <span class="text-muted-foreground font-normal">
                 <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
@@ -28,7 +28,8 @@
                 {{reading_time}}
             </span>
         </div>
-        <a href="{{url}}" class="block after:absolute after:inset-0">
+        {{!--  class="block after:absolute after:inset-0" --}}
+        <a href="{{url}}">
             <h2 class="text-2xl font-bold leading-tight tracking-tight text-foreground group-hover:text-muted-foreground transition-colors">
                 {{title}}
             </h2>
