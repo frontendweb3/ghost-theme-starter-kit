@@ -6,29 +6,14 @@ import fs from 'node:fs'
 import path from 'node:path'
 import purgeCSSPlugin from '@fullhuman/postcss-purgecss'
 
-// Helper to get all .hbs files in the root and partials folder
-const getAllHbsFiles = (dir: string, fileList: string[] = []) => {
-    const files = fs.readdirSync(dir);
-    files.forEach((file) => {
-        const filePath = path.join(dir, file);
-        if (fs.statSync(filePath).isDirectory()) {
-            if (file === 'partials' || file === 'locales') {
-                getAllHbsFiles(filePath, fileList);
-            }
-        } else if (file.endsWith('.hbs')) {
-            fileList.push(filePath);
-        }
-    });
-    return fileList;
-};
 
 export default defineConfig(({ mode }) => {
-
   const isProduction = mode === 'production';
 
   const purgeCssContent = [
-    ...getAllHbsFiles('.'),
-    'assets/js/**/*.js'
+    './**/*.hbs',
+    'assets/js/**/*.js',
+    'assets/css/**/*.css'
   ];
   
   return {
@@ -71,9 +56,13 @@ export default defineConfig(({ mode }) => {
           ? [
               purgeCSSPlugin({
                 content: purgeCssContent,
-                defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+                defaultExtractor: (content) => content.match(/[A-Za-z0-9-_.:/\[\]]+/g) || [],
+                safelist: {
+                  standard: [':root', '.dark']
+                },
+                variables: true,
                 fontFace: true,
-                variables: true,                
+                keyframes: true
                 })
             ]
           : []
