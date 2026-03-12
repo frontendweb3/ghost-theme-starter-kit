@@ -6,24 +6,24 @@
    <img src="https://tailwindcss.com/_next/static/media/tailwindcss-logotype-white.541819ec.svg" alt="Tailwind CSS" height="64" />
 </div>
 
-A minimal Ghost CMS theme starter that combines Ghost templates with modern tools (Vite + Tailwind CSS 4) to help you build and deploy themes quickly. Clone it, customize it, and use it for commercial or client projects.
+A minimal Ghost CMS theme starter that combines Ghost templates with modern tools (Vite + Tailwind CSS 4) to help you build and deploy themes quickly. Clone it, customize it, and use it for personal, client, or commercial projects.
 
 ## Features
 
 - Vite-powered development and build pipeline for quick reloads and optimized bundles
 - Tailwind CSS 4 with the Typography plugin for efficient styling
-- Ready-to-ship structure with assets  and basic pagination/navigation components
-- Automatic image optimization using Sharp for enhanced performance
-- Theme packaging that allows export as a zip file for easy distribution and deployment
+- Ready-to-ship structure with assets and basic pagination/navigation components
+- Automatic image optimization using `Sharp` for better performance
+- Theme packaging that exports a ZIP file for easy distribution and deployment
 
 ## Prerequisites
 
-- Node.js 22+ and pnpm installed globally
+- Node.js 22+ and `pnpm` installed globally
 - A local or remote Ghost instance (v6+) to test the theme
 
 ## Quick Start
 
-1. Clone the repo:
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/frontendweb3/ghost-theme-starter-kit.git
@@ -52,9 +52,9 @@ A minimal Ghost CMS theme starter that combines Ghost templates with modern tool
 
 ## Using with Ghost
 
-- Copy the built theme output into your Ghost installation’s `content/themes/<your-theme>/` directory (or symlink during development).
+- Copy the built theme output into your Ghost installation's `content/themes/<your-theme>/` directory (or symlink it during development).
 - Restart Ghost so it picks up the new theme, then activate it in the Ghost admin UI.
-- Adjust `package.json` `config` values (e.g., `posts_per_page`, `card_assets`) to match your design needs.
+- Adjust the `config` values in `package.json` (for example, `posts_per_page` and `card_assets`) to match your design needs.
 
 ## Project Structure
 
@@ -101,11 +101,11 @@ This starter uses `lucide` with a reusable Handlebars partial.
    {{> "components/icon" name="heart" class="w-4 h-4" ariaLabel="Heart icon"}}
    ```
 
-Simple rule: import icon as `Heart` in JS, then use `name="heart"` in Handlebars. For two-word icons (example `UserRound`), use kebab-case in templates (`name="user-round"`).
+Simple rule: import the icon as `Heart` in JavaScript, then use `name="heart"` in Handlebars. For two-word icons such as `UserRound`, use kebab-case in templates (`name="user-round"`).
 
 ## Shadcn UI CSS Variable Support
 
-This starter supports shadcn-style design tokens (CSS variables), even though this is a Ghost theme and not a React app.
+This starter supports shadcn-style design tokens (CSS variables), even though it is a Ghost theme and not a React app.
 
 - Variables are defined in `assets/css/shadcn-variables.css`.
 - The variables file is imported in `assets/css/styles.css`.
@@ -113,7 +113,31 @@ This starter supports shadcn-style design tokens (CSS variables), even though th
 - Includes `.dark` variables for dark mode.
 - Includes `@theme inline` mappings for Tailwind CSS 4 tokens.
 
-In simple terms: these variables are your theme colors, spacing, radius, and shadows. Tailwind utility classes read from them, so you can change the theme from one place.
+In simple terms: these variables define your theme colors, spacing, radius, and shadows. Tailwind utility classes read from them, so you can update the theme from one place.
+
+## Add/Change Fonts
+
+You can choose font pairings from [Fonttrio](https://www.fonttrio.xyz/) and apply them in this theme.
+
+Simple steps:
+
+1. Choose a font pair and install it with a package manager or include it with a CDN.
+2. Update font tokens in `assets/css/shadcn-variables.css`:
+   - `--font-heading`
+   - `--font-body`
+3. Restart your local development server with `pnpm dev`.
+
+In simple terms: change the font variables once, and heading/body typography updates everywhere.
+
+## Add/Change Theme
+
+This starter uses shadcn theme variables, so you can easily customize the theme.
+
+1. Open a shadcn theme generator such as <https://shadcnstudio.com/theme-generator> or <https://tweakcn.com>.
+2. Generate your preferred theme.
+3. Copy the generated Tailwind/CSS variable output and paste it into `assets/css/shadcn-variables.css`.
+
+In simple terms: generate a theme, replace the variables file, and rebuild the project.
 
 ## Vite Plugin List (Simple)
 
@@ -131,8 +155,8 @@ The following plugins are configured in `vite.config.ts`:
 ## Scripts
 
 - `pnpm dev` — Build in watch mode for development
-- `pnpm build` — Production build and it genrate the theme zip file.
-- `pnpm test` — testing ghost cms v6 theme using gscan cli
+- `pnpm build` — Creates a production build and generates the theme ZIP file.
+- `pnpm test` — Tests the Ghost CMS v6 theme using the `gscan` CLI.
 
 ## Licensing
 
