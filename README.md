@@ -60,6 +60,7 @@ A minimal Ghost CMS theme starter that combines Ghost templates with modern tool
 
 - Templates: `author.hbs`, `default.hbs`, `index.hbs`, `post.hbs`, `page.hbs`, `tag.hbs`, `error-404.hbs`
 - Partials: `partials/` (header, footer, navigation, pagination, cards)
+- Components: `partials/components` (button and icon). These are reusable UI partials, and the icon partial is built with Lucide.
 - Assets: `assets/` (CSS, JS, images) compiled by Vite into `public/`
 - Build config: `vite.config.ts`
 - Images: source under `assets/images/` and optimized into `assets/dist/image/`
@@ -69,14 +70,70 @@ A minimal Ghost CMS theme starter that combines Ghost templates with modern tool
 - Tailwind CSS 4 is included via `tailwindcss` and `@tailwindcss/typography`.
 - Add utility classes in `assets/css/styles.css` and extend via Tailwind config if desired.
 
+## Lucide Icon Guide
+
+This starter uses `lucide` with a reusable Handlebars partial.
+
+1. Add the icon import in `assets/js/icons.js`.
+
+   ```js
+   import { createIcons, Sun, Moon, Search, UserRound, SendHorizontal, Heart } from 'lucide';
+   ```
+
+2. Register it in the `icons` object inside `createIcons`.
+
+   ```js
+   createIcons({
+     icons: {
+       Sun,
+       Moon,
+       Search,
+       UserRound,
+       SendHorizontal,
+       Heart
+     }
+   });
+   ```
+
+3. Use the icon partial in any `.hbs` file.
+
+   ```hbs
+   {{> "components/icon" name="heart" class="w-4 h-4" ariaLabel="Heart icon"}}
+   ```
+
+Simple rule: import icon as `Heart` in JS, then use `name="heart"` in Handlebars. For two-word icons (example `UserRound`), use kebab-case in templates (`name="user-round"`).
+
+## Shadcn UI CSS Variable Support
+
+This starter supports shadcn-style design tokens (CSS variables), even though this is a Ghost theme and not a React app.
+
+- Variables are defined in `assets/css/shadcn-variables.css`.
+- The variables file is imported in `assets/css/styles.css`.
+- Includes `:root` variables for light mode.
+- Includes `.dark` variables for dark mode.
+- Includes `@theme inline` mappings for Tailwind CSS 4 tokens.
+
+In simple terms: these variables are your theme colors, spacing, radius, and shadows. Tailwind utility classes read from them, so you can change the theme from one place.
+
+## Vite Plugin List (Simple)
+
+The following plugins are configured in `vite.config.ts`:
+
+- `@tailwindcss/vite`
+  - Why: compiles Tailwind CSS 4 during build/watch.
+- `vite-plugin-image-optimizer`
+  - Why: optimizes image assets (jpg/png/webp/svg/avif) for better performance.
+- `vite-plugin-zip-pack` (production only)
+  - Why: creates a final theme `.zip` file for Ghost upload/deployment.
+- `@fullhuman/postcss-purgecss` (production only)
+  - Why: removes unused CSS based on `.hbs`, JS, and CSS content paths to reduce final CSS size.
+
 ## Scripts
 
 - `pnpm dev` — Build in watch mode for development
-- `pnpm build` — Production build
-- `pnpm preview` — Preview the production build locally
+- `pnpm build` — Production build and it genrate the theme zip file.
+- `pnpm test` — testing ghost cms v6 theme using gscan cli
 
 ## Licensing
 
 This starter is released under the MIT License (see LICENSE.md). You are free to use it for personal, client, or commercial projects and to sell derived themes.
-
-- <https://www.fonttrio.xyz>
