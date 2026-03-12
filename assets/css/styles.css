@@ -12,6 +12,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  
+  /* Ghost CMS fonts support and default font support as well */ 
+  --font-heading: var(--gh-font-heading, var(--font-inter));
+  --font-body: var(--gh-font-body, var(--font-inter));
+
+}
+
 @layer base {  
 
   body {
