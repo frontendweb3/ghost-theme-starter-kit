@@ -149,8 +149,6 @@ The following plugins are configured in `vite.config.ts`:
   - Why: optimizes image assets (jpg/png/webp/svg/avif) for better performance.
 - `vite-plugin-zip-pack` (production only)
   - Why: creates a final theme `.zip` file for Ghost upload/deployment.
-- `@fullhuman/postcss-purgecss` (production only)
-  - Why: removes unused CSS based on `.hbs`, JS, and CSS content paths to reduce final CSS size.
 
 ## Scripts
 

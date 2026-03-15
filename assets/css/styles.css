@@ -23,7 +23,6 @@
 @layer base {  
 
   body {
-    @apply bg-background text-foreground antialiased transition-colors duration-300;
     font-family: var(--font-body);
     font-weight: 400;
   }

@@ -4,18 +4,11 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 import zipPack from 'vite-plugin-zip-pack'
 import fs from 'node:fs'
 import path from 'node:path'
-import purgeCSSPlugin from '@fullhuman/postcss-purgecss'
 
 
 export default defineConfig(({ mode }) => {
   const isProduction = mode === 'production';
 
-  const purgeCssContent = [
-    './**/*.hbs',
-    'assets/js/**/*.js',
-    'assets/css/**/*.css'
-  ];
-  
   return {
     plugins: [
       tailwindcss(),
@@ -50,24 +43,6 @@ export default defineConfig(({ mode }) => {
           }
       })
     ],
-    css: {
-      postcss: {
-        plugins: isProduction
-          ? [
-              purgeCSSPlugin({
-                content: purgeCssContent,
-                defaultExtractor: (content) => content.match(/[A-Za-z0-9-_.:/\[\]]+/g) || [],
-                safelist: {
-                  standard: [':root', '.dark']
-                },
-                variables: true,
-                fontFace: true,
-                keyframes: true
-                })
-            ]
-          : []
-      }
-    },
     build: {
       outDir: 'assets/dist',
       emptyOutDir: true,

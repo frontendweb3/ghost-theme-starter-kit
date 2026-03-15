@@ -25,7 +25,6 @@
     "ghost": ">=6.0.0"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^8.0.0",
     "@types/node": "^25.3.3",
     "sharp": "^0.34.5",
     "svgo": "^4.0.0",
