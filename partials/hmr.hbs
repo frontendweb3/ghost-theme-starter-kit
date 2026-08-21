@@ -1,3 +1,18 @@
-{{!-- Vite HMR Development Client and Entry Scripts --}}
-<script type="module" src="http://localhost:5173/@vite/client"></script>
-<script type="module" src="http://localhost:5173/assets/js/main.js"></script>
+{{! Vite HMR Development Client and Entry Scripts --}}
+<script>
+    // Simple JavaScript wrapper to inject assets based on environment
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        console.log("HMR is running ")
+        // Inject Vite client
+        const viteClient = document.createElement('script');
+        viteClient.type = 'module';
+        viteClient.src = 'http://localhost:5173/@vite/client';
+        document.head.appendChild(viteClient);
+
+        // 2. Inject Entry CSS/JS 
+        const viteEntry = document.createElement('script');
+        viteEntry.type = 'module';
+        viteEntry.src = 'http://localhost:5173/assets/js/main.js';
+        document.head.appendChild(viteEntry);
+    }
+</script>

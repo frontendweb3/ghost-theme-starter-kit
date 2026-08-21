@@ -1,10 +1,32 @@
-import { defineConfig } from 'vite'
+import { defineConfig, Plugin } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 import zipPack from 'vite-plugin-zip-pack'
 import fs from 'node:fs'
 import path from 'node:path'
 
+function ghostHmrPlugin(): Plugin {
+  return {
+    name: 'ghost-hmr-hbs',
+    configureServer(server) {
+      // 1. Watch Handlebars templates
+      server.watcher.add('**/*.hbs');
+
+      // 2. Handle template changes for Ghost CMS and Tailwind CSS v4
+      server.watcher.on('change', (file) => {
+        if (file.endsWith('.hbs')) {
+          // Invalidate module graph so Tailwind CSS re-scans .hbs for new classes
+          server.moduleGraph.invalidateAll();
+          // Trigger full browser reload for Ghost CMS
+          server.ws.send({
+            type: 'full-reload',
+            path: '*',
+          });
+        }
+      });
+    },
+  };
+}
 
 export default defineConfig(({ mode }) => {
   const isProduction = mode === 'production';
@@ -22,6 +44,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     plugins: [
+      ghostHmrPlugin(),
       tailwindcss(),
       ViteImageOptimizer({
         test: /\.(jpe?g|png|gif|tiff|webp|svg|avif)$/i,
@@ -33,25 +56,25 @@ export default defineConfig(({ mode }) => {
         webp: { quality: 80 },
       }),
       isProduction && zipPack({
-          inDir: './', // Root of your theme
-          outDir: './', // Where to place the zip
-          outFileName: `${JSON.parse(fs.readFileSync(path.join('.', 'package.json'), 'utf-8')).name}.zip`,
-          // Important: Filter what goes into the final zip
-          filter: (fileName, filePath) => {
-              // Include compiled assets from dist
-              if (filePath.includes('assets/dist') || fileName === 'assets') return true
-              // Include hbs templates
-              if (fileName.endsWith('.hbs')) return true;
-              // Include partials folder
-              if (filePath.includes('partials')) return true;
-              // Include package.json
-              if (fileName === 'package.json') return true;
-              // Include LICENSE
-              if (fileName === 'LICENSE') return true;
-              
-              // Exclude everything else (node_modules, source assets, etc)
-              return false;
-          }
+        inDir: './', // Root of your theme
+        outDir: './', // Where to place the zip
+        outFileName: `${JSON.parse(fs.readFileSync(path.join('.', 'package.json'), 'utf-8')).name}.zip`,
+        // Important: Filter what goes into the final zip
+        filter: (fileName, filePath) => {
+          // Include compiled assets from dist
+          if (filePath.includes('assets/dist') || fileName === 'assets') return true
+          // Include hbs templates
+          if (fileName.endsWith('.hbs')) return true;
+          // Include partials folder
+          if (filePath.includes('partials')) return true;
+          // Include package.json
+          if (fileName === 'package.json') return true;
+          // Include LICENSE
+          if (fileName === 'LICENSE') return true;
+
+          // Exclude everything else (node_modules, source assets, etc)
+          return false;
+        }
       })
     ],
     build: {
