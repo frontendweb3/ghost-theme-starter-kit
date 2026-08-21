@@ -10,6 +10,17 @@ export default defineConfig(({ mode }) => {
   const isProduction = mode === 'production';
 
   return {
+    server: {
+      port: 5173,
+      strictPort: true,
+      cors: true,
+      origin: 'http://localhost:5173',
+      hmr: {
+        host: 'localhost',
+        port: 5173,
+        protocol: 'ws',
+      },
+    },
     plugins: [
       tailwindcss(),
       ViteImageOptimizer({

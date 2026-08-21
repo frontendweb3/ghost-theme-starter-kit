@@ -1,13 +1,12 @@
-{{!-- Add the script and css to theme  --}}
+{{!-- Add the script and css to theme --}}
 
 <link rel="stylesheet" href="{{asset 'dist/css/main.css'}}" />
 <script defer src="{{asset 'dist/js/main.js'}}"></script>
 
 {{#is "post, page"}}
-    {{!-- Highlight code and config the copy code button on code block --}}
-    <script type="module" defer src="{{asset "dist/js/post.js"}}"></script>
-    <link rel="stylesheet" href="{{asset 'dist/css/post.css'}}" />
-
+{{!-- Highlight code and config the copy code button on code block --}}
+<script type="module" defer src="{{asset 'dist/js/post.js'}}"></script>
+<link rel="stylesheet" href="{{asset 'dist/css/post.css'}}" />
 {{/is}}
 
 

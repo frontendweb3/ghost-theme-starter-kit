@@ -36,15 +36,21 @@ A minimal Ghost CMS theme starter that combines Ghost templates with modern tool
    pnpm install
    ```
 
-3. Develop (build in watch mode):
+3. Develop with Hot Module Replacement (HMR):
 
    ```bash
    pnpm dev
    ```
 
-   This runs `vite build --watch` so assets rebuild on change.
+   This starts the Vite HMR dev server on `http://localhost:5173`. Make sure the `development_mode` setting in Ghost Admin (Custom Theme Settings) is turned ON so Ghost loads live HMR modules.
 
-4. Production build:
+4. Build in watch mode (without HMR server):
+
+   ```bash
+   pnpm dev:watch
+   ```
+
+5. Production build:
 
    ```bash
    pnpm build
@@ -152,7 +158,8 @@ The following plugins are configured in `vite.config.ts`:
 
 ## Scripts
 
-- `pnpm dev` — Build in watch mode for development
+- `pnpm dev` — Starts Vite HMR dev server on port 5173 for live reloading inside Ghost templates.
+- `pnpm dev:watch` — Builds assets on disk in watch mode without running the HMR server.
 - `pnpm build` — Creates a production build and generates the theme ZIP file.
 - `pnpm test` — Tests the Ghost CMS v6 theme using the `gscan` CLI.
 
