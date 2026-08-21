@@ -53,7 +53,7 @@ A minimal Ghost CMS theme starter that combines Ghost templates with modern tool
 
    This compiles assets into `assets/dist/` and generates the theme `.zip` file for deployment.
 
-## How HMR Works with Ghost CMS
+## How Hot Module Replacement (HMR) Works with Ghost CMS
 
 Ghost CMS runs on `http://localhost:2368` and Vite dev server runs on `http://localhost:5173`.
 
