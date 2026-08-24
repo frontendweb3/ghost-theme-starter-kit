@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "skills": {
+    "ghost-theme-builder": {
+      "source": "clawhub.ai",
+      "sourceUrl": "https://clawhub.ai/frontendweb/skills/ghost-theme-builder",
+      "sourceType": "well-known",
+      "computedHash": "1a59a3cdf30a5237e82bba1bd6608cfcf10bad614052d4786ff60bfe7bb003ca",
+      "wellKnownDigest": "sha256:aadaa3c3e516693b782aa269a4d5b3757a699f13a39d058de86731d3f1dbdf59"
+    }
+  }
+}
