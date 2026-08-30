@@ -150,6 +150,7 @@ The following plugins are configured in `vite.config.ts`:
 - `pnpm dev` — Starts Vite HMR dev server on port 5173 for live reloading inside Ghost templates.
 - `pnpm build` — Creates a production build and generates the theme ZIP file.
 - `pnpm test` — Tests the Ghost CMS v6 theme using the `gscan` CLI.
+- `pnpm screenshot` — Captures full-page screenshots of theme routes across desktop, tablet, and mobile viewports using Playwright and generates an HTML gallery (`screenshots/index.html`).
 
 ## Licensing
 
