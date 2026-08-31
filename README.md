@@ -6,9 +6,9 @@
    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="Tailwind CSS" height="64" />
 </div>
 
-<p style="margin-top: 100px;">
-   <a href="https://frontendweb3.github.io/ghost-theme-starter-kit/screenshots/"><strong>🌐 View Live Demo / Screenshots</strong></a>
-</p>
+<div align="center" style="margin-top: 100px">
+   <a style="text-align: center;" href="https://frontendweb3.github.io/ghost-theme-starter-kit/screenshots/"><strong>🌐 View Live Demo / Screenshots</strong></a>
+</div>
 
 A minimal Ghost CMS theme starter that combines Ghost templates with modern tools (Vite + Tailwind CSS 4) to help you build and deploy themes quickly. Clone it, customize it, and use it for personal, client, or commercial projects.
 
