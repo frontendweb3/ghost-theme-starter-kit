@@ -5,7 +5,31 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{meta_title}}</title>
-    {{> "hmr"}}
+
+    <!-- BEGIN HMR DEV SCRIPT -->
+    <script id="ghost-vite-hmr">
+        (function () {
+            const host = window.location.hostname || 'localhost';
+            const isLocal = host === 'localhost' || host === '127.0.0.1' || host.endsWith('.local');
+
+            if (isLocal) {
+                const port = 5173;
+                const viteBaseUrl = `http://${host}:${port}`;
+
+                fetch(`${viteBaseUrl}/@vite/client`, { mode: 'no-cors' })
+                    .then(() => {
+                        const hmrScript = document.createElement('script');
+                        hmrScript.type = 'module';
+                        hmrScript.src = `${viteBaseUrl}/assets/js/hmr.js`;
+                        document.head.appendChild(hmrScript);
+                    })
+                    .catch(() => { });
+            }
+        })();
+    </script>
+    <!-- END HMR DEV SCRIPT -->
+
+
     {{> "style-script"}} {{!-- partials/style-script.hbs --}}
 
     {{ghost_head}}

@@ -8,6 +8,10 @@ import './icons.js';   // Initialize Lucide icons
 // Help Vite discover images for optimization
 import.meta.glob('../images/**/*.{png,jpg,jpeg,svg,webp,avif}', { eager: true });
 
+if (import.meta.env.DEV) {
+    console.log('[Vite HMR] Main entry loaded in DEV mode');
+}
+
 const getCommentAccentColor = () => {
     const probe = document.createElement('span');
     probe.style.color = 'var(--accent)';
@@ -31,17 +35,17 @@ const syncCommentTheme = () => {
 
     if (!commentsScript) {
         if (!commentsDocument && commentsFrame) {
-            commentsFrame.addEventListener('load', syncCommentTheme, {once: true});
+            commentsFrame.addEventListener('load', syncCommentTheme, { once: true });
         }
         return;
     }
 
     commentsScript.dataset.colorScheme = isDarkTheme ? 'dark' : 'light';
-    // commentsScript.dataset.accentColor = getCommentAccentColor();
+    commentsScript.dataset.accentColor = getCommentAccentColor();
 
     if (!commentsDocument) {
         if (commentsFrame) {
-            commentsFrame.addEventListener('load', syncCommentTheme, {once: true});
+            commentsFrame.addEventListener('load', syncCommentTheme, { once: true });
         }
 
         return;
@@ -52,7 +56,7 @@ const syncCommentTheme = () => {
     if (commentSection) {
         commentSection.classList.toggle('dark', isDarkTheme);
     } else if (commentsFrame) {
-        commentsFrame.addEventListener('load', syncCommentTheme, {once: true});
+        commentsFrame.addEventListener('load', syncCommentTheme, { once: true });
     }
 };
 
@@ -72,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     syncCommentTheme();
 
     if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', function() {
+        themeToggleBtn.addEventListener('click', function () {
             // toggle icons inside button
             themeToggleDarkIcon.classList.toggle('hidden');
             themeToggleLightIcon.classList.toggle('hidden');
@@ -87,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     localStorage.setItem('theme', 'light');
                 }
 
-            // if NOT set via local storage previously
+                // if NOT set via local storage previously
             } else {
                 if (document.documentElement.classList.contains('dark')) {
                     document.documentElement.classList.remove('dark');

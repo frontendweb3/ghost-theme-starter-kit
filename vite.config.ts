@@ -28,6 +28,34 @@ function ghostHmrPlugin(): Plugin {
   };
 }
 
+function ghostCleanZipPlugin(): Plugin {
+  let originalContent = '';
+  const defaultHbsPath = path.resolve('.', 'default.hbs');
+
+  return {
+    name: 'ghost-clean-zip',
+    apply: 'build',
+    buildStart() {
+      if (fs.existsSync(defaultHbsPath)) {
+        originalContent = fs.readFileSync(defaultHbsPath, 'utf-8');
+        const strippedContent = originalContent.replace(
+          /\s*<!-- BEGIN HMR DEV SCRIPT -->[\s\S]*?<!-- END HMR DEV SCRIPT -->\s*/g,
+          '\n'
+        );
+        fs.writeFileSync(defaultHbsPath, strippedContent, 'utf-8');
+      }
+    },
+    closeBundle: {
+      order: 'post',
+      handler() {
+        if (originalContent && fs.existsSync(defaultHbsPath)) {
+          fs.writeFileSync(defaultHbsPath, originalContent, 'utf-8');
+        }
+      }
+    }
+  };
+}
+
 export default defineConfig(({ mode }) => {
   const isProduction = mode === 'production';
 
@@ -45,6 +73,7 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       ghostHmrPlugin(),
+      isProduction && ghostCleanZipPlugin(),
       tailwindcss(),
       ViteImageOptimizer({
         test: /\.(jpe?g|png|gif|tiff|webp|svg|avif)$/i,

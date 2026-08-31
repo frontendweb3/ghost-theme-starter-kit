@@ -57,8 +57,8 @@ A minimal Ghost CMS theme starter that combines Ghost templates with modern tool
 
 Ghost CMS runs on `http://localhost:2368` and Vite dev server runs on `http://localhost:5173`.
 
-- **Client Injection**: [partials/hmr.hbs](file:///home/officialrajdeepsingh/frontendweb/ghost-theme/ghost-theme-starter/partials/hmr.hbs) automatically detects `localhost` / `127.0.0.1` and injects Vite's client script (`@vite/client`) and `assets/js/main.js`.
-- **Template Reloads (`.hbs`)**: When you edit any `.hbs` Handlebars template, the custom `ghostHmrPlugin` in [vite.config.ts](file:///home/officialrajdeepsingh/frontendweb/ghost-theme/ghost-theme-starter/vite.config.ts) invalidates Vite's module graph (allowing Tailwind CSS v4 to scan for new classes) and sends a `full-reload` signal to refresh the page in your browser.
+- **Client Injection**: [assets/js/hmr.js](assets/js/hmr.js) automatically detects `localhost` / `127.0.0.1` and injects Vite's client script (`@vite/client`) and `assets/js/main.js`.
+- **Template Reloads (`.hbs`)**: When you edit any `.hbs` Handlebars template, the custom `ghostHmrPlugin` in [vite.config.ts](vite.config.ts) invalidates Vite's module graph (allowing Tailwind CSS v4 to scan for new classes) and sends a `full-reload` signal to refresh the page in your browser.
 - **Instant CSS & JS Updates (`.css` / `.js`)**: Styling changes (Tailwind classes) and JS changes update instantly in the browser via Vite's native HMR without refreshing the page.
 
 ## Code Syntax Highlighting (Highlight.js)
@@ -86,7 +86,7 @@ Code syntax highlighting is pre-configured for code blocks inside posts and page
 ## Project Structure
 
 - Templates: `author.hbs`, `default.hbs`, `index.hbs`, `post.hbs`, `page.hbs`, `tag.hbs`, `error-404.hbs`
-- Partials: `partials/` (header, footer, navigation, pagination, cards, hmr)
+- Partials: `partials/` (header, footer, navigation, pagination, cards)
 - Components: `partials/components` (button and icon). These are reusable UI partials built with Lucide icons.
 - Assets: `assets/` (CSS, JS, images) compiled by Vite into `assets/dist/`
 - Build config: `vite.config.ts`
