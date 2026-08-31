@@ -14,5 +14,5 @@ export const ROUTES = [
   { path: '/tag/javascript/', name: 'tag-javascript' },
   { path: '/understanding-ebpf-how-the-linux-kernel-became-programmable-and-why-it-matters/', name: 'post-ebpf' },
   { path: '/the-rise-of-ai-coding-assistants-how-llms-are-transforming-developer-workflows-in-2026/', name: 'post-ai' },
-  { path: '/author/rajdeep-dev/', name: 'author-rajdeep-dev' },
+  { path: '/author/henry-harrison/', name: 'author-henry-harrison' },
 ];
