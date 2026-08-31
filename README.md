@@ -4,6 +4,10 @@
    <img src="https://mintcdn.com/ghost/5_xpDDjqLTzEezAK/images/3715a5ca-ghost-logo-light.png?w=1100&fit=max&auto=format&n=5_xpDDjqLTzEezAK&q=85&s=02cd3d095e93413aef1f203afb1faaea" alt="Ghost CMS" height="64" />
    <img src="https://vitejs.dev/logo.svg" alt="Vite" height="64" style="margin: 0 16px;" />
    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="Tailwind CSS" height="64" />
+
+   <p style="margin-top: 12px;">
+      <a href="https://frontendweb3.github.io/ghost-theme-starter-kit/screenshots/"><strong>🌐 View Live Demo / Screenshots</strong></a>
+   </p>
 </div>
 
 A minimal Ghost CMS theme starter that combines Ghost templates with modern tools (Vite + Tailwind CSS 4) to help you build and deploy themes quickly. Clone it, customize it, and use it for personal, client, or commercial projects.
