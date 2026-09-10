@@ -14,17 +14,19 @@
         </div>
         <div class="flex items-center gap-4">
 
-            {{#> "components/button" id="theme-toggle" variant="icon" size="icon-full" ariaLabel="Toggle dark mode"}}
+            {{#> "components/button" class="cursor-pointer" id="theme-toggle" variant="icon" size="icon-full"
+            ariaLabel="Toggle dark mode"}}
             {{> "components/icon" name="sun" id="theme-toggle-dark-icon" class="hidden " ariaLabel="Sun icon"}}
             {{> "components/icon" name="moon" id="theme-toggle-light-icon" class="hidden " ariaLabel="Moon icon"}}
             {{/ "components/button"}}
 
-            {{#> "components/button" dataGhostSearch=true id="search-toggle" variant="icon" size="icon-full"
+            {{#> "components/button" class="cursor-pointer" dataGhostSearch=true id="search-toggle" variant="icon"
+            size="icon-full"
             ariaLabel="Toggle search"}}
             {{> "components/icon" name="search" id="search-icon" ariaLabel="Search icon"}}
             {{/ "components/button"}}
 
-            {{#> "components/button" href="#/portal/signup" size="lg" ariaLabel="Subscribe us"}}
+            {{#> "components/button" class="cursor-pointer" href="#/portal/signup" size="lg" ariaLabel="Subscribe us"}}
             {{> "components/icon" name="user-round" id="user" ariaLabel="Subscribe us"}} Subscribe
             {{/ "components/button"}}
 
