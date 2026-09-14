@@ -15,4 +15,5 @@ export const ROUTES = [
   { path: '/understanding-ebpf-how-the-linux-kernel-became-programmable-and-why-it-matters/', name: 'post-ebpf' },
   { path: '/the-rise-of-ai-coding-assistants-how-llms-are-transforming-developer-workflows-in-2026/', name: 'post-ai' },
   { path: '/author/henry-harrison/', name: 'author-henry-harrison' },
+  { path: '/error-404', name: 'error-404' },
 ];
